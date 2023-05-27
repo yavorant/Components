@@ -5,146 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carousel</title>
-
-    <style>
-      /* Google font Inter 400, 500, 700 */
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      /* ------------------------ */
-      /* GENERAL STYLES */
-      /* ------------------------ */
-
-      body {
-        font-family: 'Inter', sans-serif;
-        color: #343a40;
-        line-height: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      img {
-        height: 200px;
-        border-radius: 8px;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-        transform: scale(1.5);
-      }
-
-      .carousel-container {
-        max-width: 1000px;
-        position: relative;
-        margin: auto;
-      }
-
-      .carousel {
-        max-width: 800px;
-        width: 100%;
-        background-color: #087f5b;
-        color: #c3fae8;
-        margin: 100px auto 32px;
-        padding: 32px 48px 32px 86px;
-        border-radius: 8px;
-        /* display: flex; */
-        display: none;
-        align-items: center;
-        gap: 86px;
-        position: relative;
-      }
-
-      .testimonial-text {
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 1.5;
-        margin-bottom: 24px;
-        color: #e6fcf5;
-      }
-
-      .testimonial-author {
-        font-size: 14px;
-        margin-bottom: 8px;
-      }
-
-      .testimonial-job {
-        font-size: 12px;
-      }
-
-      /* contronls */
-
-      .btn {
-        background-color: #fff;
-        border: none;
-        border-radius: 50%;
-        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-        cursor: pointer;
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .btn-icon {
-        width: 24px;
-        height: 24px;
-        stroke: #087f5b;
-        transition: 0.6s ease;
-      }
-
-      .btn--left {
-        left: -20px;
-      }
-
-      .btn--right {
-        right: -20px;
-      }
-
-      .dots {
-        /* position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 32px); */
-        display: flex;
-        gap: 16px;
-      }
-
-      .dot {
-        width: 14px;
-        height: 14px;
-        background-color: #fff;
-        border: 2px solid #087f5b;
-        border-radius: 50%;
-        cursor: pointer;
-        /* display: inline-block; */
-        transition: background-color 0.6s ease;
-      }
-
-      .active,
-      .dot:hover {
-        background-color: #087f5b;
-      }
-
-      /* Fading animation */
-      .fade {
-        animation-name: fade;
-        animation-duration: 1.5s;
-      }
-
-      @keyframes fade {
-        from {
-          opacity: 0.4;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./css/carousel.css" />
   </head>
   <body>
     <section class="carousel-container"></section>
@@ -161,7 +22,7 @@
         <p class="testimonial-job">Senior Product Manager at Booglesoft</p>
       </blockquote>
       <!-- buttons -->
-      <button class="btn btn--left">
+      <button class="btn btn--left" onclick="plusSlides(-1)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -177,7 +38,7 @@
           />
         </svg>
       </button>
-      <button class="btn btn--right">
+      <button class="btn btn--right" onclick="plusSlides(1)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -253,7 +114,7 @@
         <p class="testimonial-job">Senior Product Manager at Booglesoft</p>
       </blockquote>
       <!-- buttons -->
-      <button class="btn btn--left">
+      <button class="btn btn--left" onclick="plusSlides(-1)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -269,7 +130,7 @@
           />
         </svg>
       </button>
-      <button class="btn btn--right">
+      <button class="btn btn--right" onclick="plusSlides(1)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -340,38 +201,6 @@
       <button class="dot" onclick="currentSlide(3)">&nbsp</button>
       <button class="dot" onclick="currentSlide(4)">&nbsp</button>
     </aside>
-
-    <script>
-      let slideIndex = 1;
-      showSlides(slideIndex);
-
-      function plusSlides(n) {
-        showSlides((slideIndex += n));
-      }
-
-      function currentSlide(n) {
-        showSlides((slideIndex = n));
-      }
-
-      function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName('carousel');
-        let dots = document.getElementsByClassName('dot');
-        if (n > slides.length) {
-          slideIndex = 1;
-        }
-        if (n < 1) {
-          slideIndex = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = 'none';
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(' active', '');
-        }
-        slides[slideIndex - 1].style.display = 'flex';
-        dots[slideIndex - 1].className += ' active';
-      }
-    </script>
+    <script src="./js/carousel.js"></script>
   </body>
 </html>
