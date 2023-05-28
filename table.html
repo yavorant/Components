@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <style>
+      /*
+      SPACING SYSTEM (px)
+      2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+      FONT SIZE SYSTEM (px)
+      10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+      */
+
+      /*
+      Teal9 from https://yeun.github.io/open-color/
+      Main Color: #087f5b
+      Teal8: #099268
+      Grey color: #343a40
+      */
+
+      /* Google font Inter 400, 500, 700 */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* ------------------------ */
+      /* GENERAL STYLES */
+      /* ------------------------ */
+
+      body {
+        font-family: 'Inter', sans-serif;
+        color: #343a40;
+        line-height: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      table {
+        width: 800px;
+        margin-top: 20vh;
+        /* border: 1px solid #343a40; */
+        border-collapse: collapse;
+        font-size: 18px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      th, td {
+        /* border: 1px solid #343a40; */
+        padding: 16px 24px;
+        text-align: left;
+        width: 25%;
+      }
+
+      thead th {
+        background-color: #087f5b;
+        color: #fff
+
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: aliceblue;
+      }
+
+      caption {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: 6px;
+        margin-bottom: 16px;
+        color: #087f5b;
+      }
+
+    </style>
+  </head>
+  <body>
+    <table>
+    <caption>Chairs characteristics:</caption>
+    <thead>
+      <tr>
+        <th> Chair
+        <th> The Laid Back
+        <th> The Worker Bee
+        <th> The Chair 4/2
+    <tbody>
+      <tr>
+        <th> Width
+        <td> 80 cm
+        <td> 60 cm
+        <td> 220cm
+      <tr>
+        <th> Height
+        <td> 100 cm
+        <td> 110 cm
+        <td> 90cm
+      <tr>
+        <th> Depth
+        <td> 70 cm
+        <td> 65 cm
+        <td> 80cm
+      <tr>
+        <th> Weight
+        <td> 16 kg
+        <td> 22 kg
+        <td> 80 kg
+    </table>
+  </body>
+</html>
