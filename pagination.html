@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pagination</title>
+    <style>
+      /* Google font Inter 400, 500, 700 */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* ------------------------ */
+      /* GENERAL STYLES */
+      /* ------------------------ */
+
+      body {
+        font-family: 'Inter', sans-serif;
+        color: #343a40;
+        line-height: 1;
+      }
+
+      .active {
+        color: #fff;
+        background-color: #087f5b;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30vh;
+      }
+
+      ul {
+        display: flex;
+        gap: 16px;
+        padding: 16px;
+      }
+
+      .link {
+        padding: 16px;
+        list-style: none;
+        width: 16px;
+        height: 16px;
+      }
+
+      .link,
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .link:hover,
+      .btn:hover {
+        border: 1px solid #099268;
+        background-color: #099268;
+        color: #fff;
+      }
+
+      .link:active,
+      .btn:active {
+        border: 1px solid #087f5b;
+        background-color: #087f5b;
+        color: #fff;
+      }
+
+      .btn {
+        width: 42px;
+        height: 42px;
+        /* padding: 20px; */
+        color: #087f5b;
+        background-color: #fff;
+        border: 1px solid #087f5b;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .icon {
+        stroke: #087f5b;
+        width: 24px;
+        height: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="pagination">
+      <button class="btn btn-prev" onclick="btnPrev()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.75 19.5L8.25 12l7.5-7.5"
+          />
+        </svg>
+      </button>
+      <ul>
+        <li class="link active" value="1" onclick="activeLink()">1</li>
+        <li class="link" value="2" onclick="activeLink()">2</li>
+        <li class="link" value="3" onclick="activeLink()">3</li>
+        <li class="link" value="4" onclick="activeLink()">4</li>
+        <li class="link" value="5" onclick="activeLink()">5</li>
+        <li class="link" value="6" onclick="activeLink()">6</li>
+        <li class="link" value="7" onclick="activeLink()">7</li>
+      </ul>
+      <button class="btn btn-next" onclick="btnNext()">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+          />
+        </svg>
+      </button>
+    </section>
+    <script>
+      // from https://www.youtube.com/watch?v=Ejdir7bwCpk
+      let links = document.getElementsByClassName('link');
+
+      let currentValue = 1;
+      function activeLink() {
+        // for each link remove active class:
+        for (link of links) {
+          link.classList.remove('active');
+        }
+        // add active class for each element we click on:
+        event.target.classList.add('active');
+        currentValue = event.target.value;
+      }
+
+      function btnPrev() {
+        if (currentValue > 1) {
+          for (link of links) {
+            link.classList.remove('active');
+          }
+        }
+        currentValue--;
+        links[currentValue - 1].classList.add('active');
+      }
+
+      function btnNext() {
+        if (currentValue < links.length) {
+          for (link of links) {
+            link.classList.remove('active');
+          }
+        }
+        currentValue++;
+        links[currentValue - 1].classList.add('active');
+        console.log('links: ', links);
+        console.log('links length: ', links.length);
+        console.log('currentValue: ', currentValue);
+      }
+    </script>
+  </body>
+</html>
